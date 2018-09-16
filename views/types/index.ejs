@@ -1,3 +1,14 @@
 <% layout('../layout') -%>
 
 <h2>Pokémons de type <span style="background-color: <%= type.color %>" class="badge badge-secondary"><%= type.name %></span></h2>
+
+<% pokemons.forEach(function(pokemon) { %>
+    <div class="card" style="margin-bottom: 10px;">
+        <div class="card-header">
+            <a href="/pokemon/<%= pokemon._id %>"><%= pokemon.name %></a>
+        </div>
+        <div class="card-body">
+            <%= pokemon.description %>
+        </div>
+    </div>
+<% }) %>
