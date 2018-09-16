@@ -37,6 +37,14 @@ router.get('/pokemon/:id', (req, res) => {
     }, err => res.status(404).send(err));
 });
 
+router.get('/pokemon/delete/:id', (req, res) => {
+  Pokemon.findOneAndRemove({
+    _id: req.params.id
+  }).then(() => {
+    res.redirect('/');
+  });
+});
+
 router.post('/pokemon/:id?', (req, res) => {
   new Promise((resolve, reject) => {
     if (req.params.id) {

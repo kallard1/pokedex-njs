@@ -8,6 +8,8 @@
     </div>
     <div class="col-sm-9">
         <h2>#<%= pokemon.number %> - <%= pokemon.name %></h2>
+        <a href="edit/<%= pokemon.id %>" class="btn btn btn-outline-primary">Editer</a>
+        <a href="delete/<%= pokemon.id %>" class="btn btn-outline-danger">Supprimer</a>
         <p class="lead">
         <h4>Description :</h4>
         <%= pokemon.description %>
@@ -18,7 +20,5 @@
                 <a href="/type/<%= type.name %>" style="background-color: <%= type.color %>" class="badge badge-secondary"><%= type.name %></a>
             <% }) %>
         <% } %>
-
-        <a href="edit/<%= pokemon.id %>" class="badge badge-secondary">Editer</a>
     </div>
 </div>
