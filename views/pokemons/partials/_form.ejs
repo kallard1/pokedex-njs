@@ -1,0 +1,28 @@
+<div class="form-group">
+    <label for="number">Numéro</label>
+    <input type="number" min="1" id="number" name="number" class="form-control" value="<%= (pokemon.number != undefined ? pokemon.number : "")  %>"/>
+</div>
+
+<div class="form-group">
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" class="form-control" value="<%= (pokemon.name != undefined ? pokemon.name : "")  %>"/>
+</div>
+
+<div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" id="description" class="form-control" cols="30"
+              rows="10"><%= (pokemon.description != undefined ? pokemon.description : "")  %></textarea>
+</div>
+<div class="form-group">
+    <% types.forEach(type => { %>
+    <label>
+        <input type="checkbox" name="types[]" value="<%= type._id %>" <%= pokemon.types.indexOf(type._id) != -1 ? "checked" : "" %> />
+        <%= type.name %>
+    </label>
+    <% })%>
+</div>
+
+<div class="form-group">
+    <label for="file">Image</label>
+    <input type="file" accept=".png, .jpg, .gif" id="file" name="file" class="form-control"/>
+</div>

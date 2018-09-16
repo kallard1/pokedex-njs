@@ -1,0 +1,24 @@
+<% layout('../layout') -%>
+
+<div class="row">
+    <div class="col-sm-3">
+        <% if (pokemon.picture !== undefined) { %>
+        <img src="/uploads/<%= pokemon.picture %>" alt="<%= pokemon.name %>">
+        <% } %>
+    </div>
+    <div class="col-sm-9">
+        <h2>#<%= pokemon.number %> - <%= pokemon.name %></h2>
+        <p class="lead">
+        <h4>Description :</h4>
+        <%= pokemon.description %>
+        </p>
+        <% if (pokemon.types) { %>
+            <h4>Types :</h4>
+            <% pokemon.types.forEach(type => { %>
+                <a href="/type/<%= type.name %>" style="background-color: <%= type.color %>" class="badge badge-secondary"><%= type.name %></a>
+            <% }) %>
+        <% } %>
+
+        <a href="edit/<%= pokemon.id %>" class="badge badge-secondary">Editer</a>
+    </div>
+</div>
